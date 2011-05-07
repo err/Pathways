@@ -1,0 +1,44 @@
+(ns birds.songs)
+
+
+;; song
+{:phrases [[1 3] [5] [3 1]]}
+
+  (map #(octave-note 4 (degree->interval :ionian %)) [1 3 5])
+  => (60 64 67)
+
+(defn form-tune [phrases pattern]
+  (let [patterns (distinct pattern)]
+    (if (< (count (:phrases moo))
+	   (count (distinct (:pattern moo))))
+      ())))
+
+
+(def moo {:phrases #{[1 3 5] [7 9]}
+	  :pattern [:A :B :A]})
+
+
+
+
+
+
+;; repertoire
+{ 
+  [pattern]  [ {binds0}
+	       {binds1}
+	       {binds2}
+	       {binds3} ] 
+			  }
+
+;; Retrieval
+;; (get {[:a :b :a] [{:a [1 3 5] :b [1 1 1 1]}
+;; 		  {:a [5 4 1] :b [1 1]}]}
+;;      [:a :b :a])
+
+
+
+;; Similarity
+ [:a :b :b :a]
+ [:a :b :b :c]
+ [:a :b :b :d]
+ [:a :b :b :b]

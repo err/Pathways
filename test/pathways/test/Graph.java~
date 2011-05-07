@@ -1,0 +1,22 @@
+package edu.gatech.synlab;
+
+import java.util.ArrayList;
+import edu.gatech.synlab.Edge;
+import edu.gatech.synlab.Node;
+
+
+public class Graph {
+    private ArrayList<Node> nodes;
+    private ArrayList<Edge> edges;
+
+    public Graph(){
+	nodes = new ArrayList<Node>();
+	edges = new ArrayList<Edge>();
+    }
+
+    public Graph(ArrayList<Node> nodes, ArrayList<Edge> edges){
+	this.nodes = nodes;
+	this.edges = edges;
+    } 
+
+}

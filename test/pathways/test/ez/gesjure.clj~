@@ -1,0 +1,2 @@
+(ns 'gesjure.core
+  (:use [clojure.contrib.math]))

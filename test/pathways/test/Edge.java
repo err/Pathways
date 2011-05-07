@@ -1,0 +1,63 @@
+//package edu.gatech.synlab;
+
+import java.util.ArrayList;
+// import /* edu.gatech.synlab. */ NodeType;
+// import /* edu.gatech.synlab. */ EntityCounter;
+
+public class Edge {
+    //Member variables
+    private int id;
+    private int src;
+    private int snk;
+
+
+    //Constructors
+    public Edge(){
+	this.id  = -1;
+	this.src = -1;
+	this.snk = -1;
+    }
+
+    public Edge(int sourceID, int sinkID){
+	EntityCounter count = EntityCounter.getEntityCounter();
+	this.id  = count.newID();
+	this.src = sourceID;
+	this.snk = sinkID;
+    }
+
+    public Edge(int id, int sourceID, int sinkID){
+	this.id  = id;
+	this.src = sourceID;
+	this.snk = sinkID;
+    }
+
+    //Getters
+    public int getID(){
+	return this.id;
+    }
+
+    public int getSourceID(){
+	return this.src;
+    }
+
+    public int getSinkID(){
+	return this.snk;
+    }
+
+    //Setters
+    public void setID(int id){
+	this.id = id;
+    }
+
+    public void setSourceID(int id){
+	this.src = id;
+    }
+
+    public void setSinkID(int id){
+	this.snk = id;
+    }
+
+    public String toString(){
+	return new String("[:id "+getID()+"\t:source-id "+getSourceID()+"\t:sink-id "+getSinkID()+"]");
+    }
+}

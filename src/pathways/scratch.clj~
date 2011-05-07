@@ -1,0 +1,26 @@
+;; mass
+{:id
+ :mass
+ :pos
+ :vel
+ :frc}
+
+;; force
+{:id
+ :active? (fn [world])
+ :weight  (fn [world])
+ : }
+
+;; sexp
+{:id
+ :form   
+ :parent ;prev
+ :childs ;next
+	       }
+
+;; world
+{:time
+ :masses
+ :forces ;this may not be necessary
+	 }
+ 

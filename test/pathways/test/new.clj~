@@ -1,0 +1,38 @@
+
+
+
+
+
+
+(defrecord node   [id x y r amt held type in out])
+(defrecord edge   [id src sink x1 y1 x2 y2 type rate])
+(defrecord cursor [id pos vel path])
+(defrecord mass   [id mass pos vel path]) ;; forces (list of attached forces)
+
+
+;; TEST branch
+(defrecord mole [id name amt])
+(defrecord reac [id name rate])
+
+(defn make-molecule [id name concentration]
+  (mole. id name concentration))
+
+(defn make-reaction [id name rate]
+  (reac. id name rate))
+
+;; (defrecord force  [id acc time acc-fn]
+;;   ;; id     - id of force (is this necessary?)
+;;   ;; acc    - [xacc yacc] component vectors
+;;   ;; time   - time at which force began
+;;   ;; acc-fn - function for updating the acc vectors at each time-step
+
+
+(def *cursors* (ref {:mouse (cursor. :mouse @*mouse-pos* [0 0] [[(mouse-x) (mouse-y) @*time*]])}))
+(def *nodes*   (ref {}))
+(def *edges*   (ref {}))
+
+(def *moles*   (ref {}))
+(def *reacs*   (ref {}))
+
+(def *masses*  (ref {}))
+(def *entity-counter* (atom 0))

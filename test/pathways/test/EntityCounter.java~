@@ -1,0 +1,9 @@
+package edu.gatech.synlab;
+
+import java.util.ArrayList;
+
+
+public class EntityCounter{
+
+    int count;
+} 

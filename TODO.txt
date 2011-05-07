@@ -1,0 +1,9 @@
+
+
+how do you connect nodes with tuio-cursors?
+how do you rotate nodes / rotate canvas with tuio-cursors?
+
+
+select-many
+ - easy w/ mouse
+ - difficult w/ tuio-cursor
