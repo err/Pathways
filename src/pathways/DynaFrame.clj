@@ -3,7 +3,7 @@
   (:gen-class
    :name         pathways.DynaFrame
    :extends      javax.swing.JFrame
-   :prefix       df-
+   :prefix       "df-"
    :implements   [clojure.lang.IMeta]
    :state        state
    :init         init

@@ -1,9 +1,9 @@
 (ns pathways.socks
   "The simple Swing widgets from section 10.2"
   ;; (:use [pathways.DynaFrame])
-  (:import 
+  (:import
    (javax.swing Box BoxLayout JTextField JPanel
-                JSplitPane JLabel JButton 
+                JSplitPane JLabel JButton
                 JOptionPane JSlider)
    (java.awt Component GridLayout FlowLayout BorderLayout)
    (java.awt.event ActionListener)))
@@ -18,7 +18,7 @@
 
 (defn stack [& components]
   (let [stack (Box. BoxLayout/PAGE_AXIS)]
-    (doseq [c components] 
+    (doseq [c components]
       (.setAlignmentX c Component/CENTER_ALIGNMENT)
       (.add stack c))
     stack))
@@ -38,19 +38,19 @@
     g))
 
 
-(defn slider 
+(defn slider
 "
   Examples:
-    (use '(incanter core stats charts))
+    (require '[incanter.core] '[incanter.stats] '[incanter.charts])
 
     (def pdf-chart (function-plot pdf-normal -3 3))
     (view pdf-chart)
     (add-function pdf-chart pdf-normal -3 3)
 
-    (let [x (range -3 3 0.1)] 
+    (let [x (range -3 3 0.1)]
       (slider #(set-data pdf-chart [x (pdf-normal x :sd %)]) (range 0.1 10 0.1)))
 
-    (let [x (range -3 3 0.1)] 
+    (let [x (range -3 3 0.1)]
       (slider #(set-data pdf-chart [x (pdf-normal x :sd %)]) (range 0.1 10 0.1) \"sd\"))
 "
   ([updater-fn slider-values]
@@ -71,9 +71,9 @@
 		   (.add label BorderLayout/NORTH)
 		   (.add slider BorderLayout/CENTER))
 	   width 500
-	   height 70]        
+	   height 70]
        panel)))
-      
+
 (defn button [text f]
   (doto (JButton. text)
     (.addActionListener
@@ -91,7 +91,7 @@
   ([msg] (alert nil msg))
   ([frame msg]
      (javax.swing.JOptionPane/showMessageDialog frame msg)))
-			 
+
 
 (defn example-gui []
   (let [gui (pathways.DynaFrame. "test")
@@ -112,36 +112,36 @@
 						  (.getText r) " rounds, every "
 						  (.getText d) " seconds."))))))))
 
-(comment 
+(comment
   (example-gui)
 
   (def gui (pathways.DynaFrame. "4th"))
-  (.display gui (doto (javax.swing.JPanel.) 
+  (.display gui (doto (javax.swing.JPanel.)
                   (.add (javax.swing.JLabel. "Charlemagne and Pippin"))))
 
-  (.display gui (doto (javax.swing.JPanel.) 
+  (.display gui (doto (javax.swing.JPanel.)
                   (.add (javax.swing.JLabel. "Mater semper certa est." ))))
 
   (.display gui
-            (splitter 
+            (splitter
              (button "Procrastinate" #(alert "Eat Cheetos"))
              (button "Move It" #(alert "Couch to 5k"))))
 
-(.display gui
-  (let [g1 (txt 10 "Charlemagne")
-        g2 (txt 10 "Pippin")
-         r  (txt 3 "15")
-         d  (txt 3 "50")]
-     (splitter
-       (stack
-         (shelf (label "Player 1") g1)
-         (shelf (label "Player 2") g2)
-         (shelf (label "Rounds ") r 
-                (label "Delay  ") d))
-       (stack
-         (grid 21 11 #(label "-"))
-         (button "Go!" #(alert (str (.getText g1) " vs. " 
-                                    (.getText g2) " for " 
-                                    (.getText r)  " rounds, every "
-                                    (.getText d)  " seconds.")))))))
-)
+  (.display gui
+            (let [g1 (txt 10 "Charlemagne")
+                  g2 (txt 10 "Pippin")
+                  r  (txt 3 "15")
+                  d  (txt 3 "50")]
+              (splitter
+               (stack
+                (shelf (label "Player 1") g1)
+                (shelf (label "Player 2") g2)
+                (shelf (label "Rounds ") r
+                       (label "Delay  ") d))
+               (stack
+                (grid 21 11 #(label "-"))
+                (button "Go!" #(alert (str (.getText g1) " vs. "
+                                           (.getText g2) " for "
+                                           (.getText r)  " rounds, every "
+                                           (.getText d)  " seconds.")))))))
+  )
